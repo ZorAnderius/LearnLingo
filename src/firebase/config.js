@@ -9,6 +9,8 @@ const firebaseConfig = {
   storageBucket: "learn-lingo-school.firebasestorage.app",
   messagingSenderId: "1082053106173",
   appId: "1:1082053106173:web:c29531ba45fb4537122194",
+  databaseURL:
+    "https://learn-lingo-school-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
 // Initialize Firebase
