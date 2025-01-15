@@ -1,16 +1,17 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import { envConfig } from "../helpers/env_config.js";
+import { ENV_VAR } from "../helpers/constants/ENV_VAR.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBgp4wz-_pIuN9mP0BBoViJMJQK8UiPYXs",
-  authDomain: "learn-lingo-school.firebaseapp.com",
-  projectId: "learn-lingo-school",
-  storageBucket: "learn-lingo-school.firebasestorage.app",
-  messagingSenderId: "1082053106173",
-  appId: "1:1082053106173:web:c29531ba45fb4537122194",
-  databaseURL:
-    "https://learn-lingo-school-default-rtdb.europe-west1.firebasedatabase.app/",
+  apiKey: envConfig(ENV_VAR.FIREBASE_API_KEY),
+  authDomain: envConfig(ENV_VAR.FIREBASE_AUTH_DOMIAN),
+  projectId: envConfig(ENV_VAR.FIREBASE_PROJECT_ID),
+  storageBucket: envConfig(ENV_VAR.FIREBASE_STORAGE_BUCKET),
+  messagingSenderId: envConfig(ENV_VAR.FIREBASE_MESSAGING_SENDER_ID),
+  appId: envConfig(ENV_VAR.FIREBASE_APP_ID),
+  databaseURL: envConfig(ENV_VAR.FIREBASE_DATABASE_URL),
 };
 
 // Initialize Firebase
