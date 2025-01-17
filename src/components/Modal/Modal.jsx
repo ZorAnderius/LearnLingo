@@ -1,40 +1,63 @@
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 const Modal = ({ isOpen, onClose, children }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalClose = useCallback(
+    e => {
+      if (e.target === e.currentTarget ||
+        (e.code === 'Escape' && isOpen) ||
+        (e.target.dataset.close)) {
+        setTimeout(() => {
+          onClose();
+        }, 200);
+        setShowModal(false);
+      }
+    },
+    [isOpen, onClose],
+  );
 
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
+      setShowModal(true);
+      document.addEventListener('keydown', handleModalClose);
+      return () => document.removeEventListener('keydown', handleModalClose);
     } else {
-      const timerId = setTimeout(() => {
-        setIsVisible(false);
-      }, 500);
-      return () => clearTimeout(timerId);
+      setIsVisible(false);
+      setShowModal(false);
     }
-  }, [isOpen]);
+  }, [isOpen, handleModalClose]);
+
+  const handleAnimationEnd = () => {
+    if (!isOpen) {
+      setIsVisible(false);
+      setShowModal(false);
+    }
+  };
 
   if (!isVisible) return null;
 
-  const handleOverlayClick = e => {
-    if (e.target === e.currentTarget) onClose();
-  };
-
   return ReactDOM.createPortal(
-    <div className={styles['modal-overlay']} onClick={handleOverlayClick}>
+    <div
+      className={clsx(styles['modal-overlay'], !isOpen && styles['is-hidden'])}
+      onClick={handleModalClose}
+      onAnimationEnd={isOpen && handleAnimationEnd}
+    >
       <div
         className={clsx(
-          styles['modal-content'],
-          isOpen ? styles['modal-open'] : styles['modal-close'],
+          showModal ? styles['modal-content'] : styles['modal-content-hidden'],
         )}
       >
         <button
           className={styles['modal-close-btn']}
           type="button"
-          onClick={onClose}
+          onClick={handleModalClose}
+          data-close
         >
           X
         </button>

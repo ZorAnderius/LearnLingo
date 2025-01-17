@@ -10,9 +10,9 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [btnContent, setBtnContent] = useState('');
 
-  const handleToggleModal = (e) => {
+  const handleToggleModal = e => {
     if (e?.target?.nodeName === 'BUTTON') setBtnContent(e.target.innerText);
-    setIsModalOpen(!isModalOpen);
+      setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -41,9 +41,11 @@ const Header = () => {
           </button>
         </div>
       </nav>
-      <Modal isOpen={isModalOpen} onClose={handleToggleModal}>
-        {btnContent === 'Login' ? <LoginForm /> : <RegisterForm />}
-      </Modal>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={handleToggleModal}>
+          {btnContent === 'Login' ? <LoginForm /> : <RegisterForm />}
+        </Modal>
+      )}
     </header>
   );
 };

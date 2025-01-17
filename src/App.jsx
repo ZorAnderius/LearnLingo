@@ -11,16 +11,16 @@ const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 const App = () => {
-  const [teachers, setTeachers] = useState(null);
-  useEffect(() => {
-    const getTeachers = async () => {
-      const teachersData = await fetchAllTeachers();
-      setTeachers(teachersData);
-    }
+  // const [teachers, setTeachers] = useState(null);
+  // useEffect(() => {
+  //   const getTeachers = async () => {
+  //     const teachersData = await fetchAllTeachers();
+  //     setTeachers(teachersData);
+  //   }
 
-    getTeachers();
-  },[])
-  console.log(teachers);
+  //   getTeachers();
+  // },[])
+  // console.log(teachers);
   return (
     <Routes>
       <Route path={ROUTES.HOME} element={<Layout />}>
