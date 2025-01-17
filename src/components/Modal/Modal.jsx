@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         (e.target.dataset.close)) {
         setTimeout(() => {
           onClose();
-        }, 200);
+        }, 400);
         setShowModal(false);
       }
     },

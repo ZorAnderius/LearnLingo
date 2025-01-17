@@ -5,8 +5,8 @@
   top: 0;
   left: 0;
   backdrop-filter: blur(1px);
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  background-color: var(--overlay-clr);
+  transition: opacity 0.6s ease-in, visibility 0.3s ease-in;
   z-index: 100;
 }
 
@@ -23,18 +23,18 @@
   transform: translate(-50%, -50%) scale(1);
   max-width: 600px;
   padding: 64px;
-  background-color: #fff;
+  background-color: var(--white-clr);
   border-radius: 30px;
 }
 
 .modal-content {
   composes: modal;
-  animation: scaleIn 0.3s ease-in;
+  animation: scaleIn 0.5s ease-in;
 }
 
 .modal-content-hidden {
   composes:modal;
-  animation: scaleOut 0.3s ease-out;
+  animation: scaleOut 0.5s ease-out;
 }
 
 .modal-close-btn {
@@ -58,14 +58,14 @@
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.9);
   }
 }
 
 @keyframes scaleIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.9);
   }
   100% {
     opacity: 1;

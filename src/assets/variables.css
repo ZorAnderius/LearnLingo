@@ -1,0 +1,27 @@
+:root {
+  --pink-primary-clr: #f4c8ba;
+  --pink-secondary-clr: #f0aa8d;
+  --pink-dark-primary-clr: #f2c0bd;
+  --pink-dark-secondary-clr: #e0a39a;
+  --blue-primary-clr: #bfd6ea;
+  --blue-secondary-clr: #bfd6ea;
+  --green-primary-clr: #cbded3;
+  --green-secondary-clr: #9fbaae;
+  --yellow-primary-clr: #fbe9ba;
+  --yellow-secondary-clr: #f4c550;
+
+  --online-clr: #38cd3e;
+
+  --text-primary-clr: #121417;
+  --text-secondary-clr: rgb(138, 138, 137);
+  --text-opacity-selector-clr: rgba(18, 20, 23, 0.2);
+  --text-opacity-hero-clr: rgba(18, 20, 23, 0.698);
+
+  --overlay-clr: rgba(0, 0, 0, 0.4);
+  --hero-bgr-clr: #F8F8F8;
+
+  --flag-top-clr:#338af3;
+  --flag-bottom-clr:#ffda44;
+
+  --white-clr: #ffffff;
+}
