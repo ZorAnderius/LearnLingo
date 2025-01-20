@@ -45,6 +45,11 @@
   background-color: transparent;
   cursor: pointer;
   color: var(--text-primary-clr);
+  transition: color var(--transition-time) var(--transition-func);
+}
+
+.modal-close-btn:is(:hover, :focus) {
+  color: var(--yellow-secondary-clr);
 }
 
 @keyframes fadeOut {

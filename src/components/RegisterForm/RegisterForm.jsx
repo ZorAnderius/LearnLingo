@@ -4,15 +4,20 @@ import { signUp } from '../../firebase/users/services.js';
 import { schemaRegister } from '../../helpers/validationSchemas/registerSchema.js';
 import Input from '../Input/Input.jsx';
 import styles from './RegisterForm.module.css';
+import Button from '../Button/Button.jsx';
+import { useState } from 'react';
+import Icon from '../Icon/Icon.jsx';
 
 const RegisterForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schemaRegister),
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleVisiblePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const onSubmit = async data => {
     const { email, password, ...additionalData } = data;
@@ -23,25 +28,34 @@ const RegisterForm = () => {
     console.log(user);
   };
   return (
-    <div>
-      <div>
-        <h2>Registration</h2>
-        <p>
-          Thank you for your interest in our platform! In order to register, we
-          need some information. Please provide us with the following
-          information
-        </p>
-      </div>
+    <div className={styles['register-container']}>
+      <h2 className={styles['register-title']}>Registration</h2>
+      <p className={styles['register-txt']}>
+        Thank you for your interest in our platform! In order to register, we
+        need some information. Please provide us with the following information
+      </p>
       <form
         className={styles['register-form']}
         onSubmit={handleSubmit(onSubmit)}
       >
         <Input label="name" register={register} required />
         <Input label="email" register={register} required />
-        <Input label="password" register={register} required>
-          Show password
+        <Input
+          type={showPassword ? 'text' : 'password'}
+          label="password"
+          register={register}
+          required
+        >
+          <Button
+            type="button"
+            style="password-eye"
+            active={showPassword}
+            handleClick={toggleVisiblePassword}
+          >
+            <Icon name="eye-off" style="eye-off" />
+          </Button>
         </Input>
-        <button type="submit">Register</button>
+        <Button type='submit' style='submit'>Register</Button>
       </form>
     </div>
   );

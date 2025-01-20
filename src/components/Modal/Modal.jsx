@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
-import styles from './Modal.module.css';
-import { useCallback, useEffect, useState } from 'react';
 import clsx from 'clsx';
+import { useCallback, useEffect, useState } from 'react';
 import Icon from '../Icon/Icon.jsx';
+import styles from './Modal.module.css';
 
 const Modal = ({ isOpen, onClose, children }) => {
   const [isVisible, setIsVisible] = useState(false);
