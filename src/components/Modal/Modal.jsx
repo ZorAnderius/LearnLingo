@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
 import { useCallback, useEffect, useState } from 'react';
 import clsx from 'clsx';
+import Icon from '../Icon/Icon.jsx';
 
 const Modal = ({ isOpen, onClose, children }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,9 +10,11 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   const handleModalClose = useCallback(
     e => {
-      if (e.target === e.currentTarget ||
-        (e.code === 'Escape' && isOpen) ||
-        (e.target.dataset.close)) {
+      if (
+        e?.target === e?.currentTarget ||
+        (e?.code === 'Escape' && isOpen) ||
+        e?.currentTarget?.dataset?.close
+      ) {
         setTimeout(() => {
           onClose();
         }, 400);
@@ -59,7 +62,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           onClick={handleModalClose}
           data-close
         >
-          X
+          <Icon name="close" style="close" size={32}/>
         </button>
         {children}
       </div>

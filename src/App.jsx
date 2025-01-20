@@ -1,6 +1,6 @@
+import 'modern-normalize';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import 'modern-normalize';
 import { ROUTES } from './helpers/constants/ROUTES.js';
 import Layout from './components/Layout/Layout.jsx';
 import './App.css';

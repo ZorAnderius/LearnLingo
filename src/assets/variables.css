@@ -15,7 +15,8 @@
   --text-primary-clr: #121417;
   --text-secondary-clr: rgb(138, 138, 137);
   --text-opacity-selector-clr: rgba(18, 20, 23, 0.2);
-  --text-opacity-hero-clr: rgba(18, 20, 23, 0.698);
+  --text-opacity-hero-clr: rgba(18, 20, 23, 0.7);
+  --modal-txt-clr: rgba(18, 20, 23, 0.8);
 
   --overlay-clr: rgba(0, 0, 0, 0.4);
   --hero-bgr-clr: #F8F8F8;
@@ -24,4 +25,7 @@
   --flag-bottom-clr:#ffda44;
 
   --white-clr: #ffffff;
+
+  --transition-time: 0.2s;
+  --transition-func: ease-in;
 }

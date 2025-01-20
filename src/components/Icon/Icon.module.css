@@ -1,4 +1,15 @@
-.log-in{
-    stroke: var(--yellow-secondary-clr);
-    fill: var(--white-clr);
+svg use {
+  width: 100%;
+  height: 100%;
+}
+
+.log-in {
+  stroke: var(--yellow-secondary-clr);
+  fill: var(--white-clr);
+}
+
+.eye-off,
+.close {
+  stroke: currentColor;
+  fill: var(--white-clr);
 }

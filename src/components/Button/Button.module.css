@@ -1,0 +1,28 @@
+.submit {
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--yellow-secondary-clr);
+  border: none;
+  color: var(--text-primary-clr);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.56;
+  transition: background-color var(--transition-time) var(--transition-func);
+}
+
+.submit:is(:hover, :focus) {
+  background-color: var(--yellow-primary-clr);
+}
+
+.password-eye {
+  color: var(--text-primary-clr);
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  transition: color var(--transition-time) var(--transition-func);
+}
+
+.password-eye:is(:hover, :focus),
+.password-eye.active-btn {
+  color: var(--yellow-secondary-clr);
+}

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import Container from '../../components/Container/Container.jsx';
 import { ROUTES } from '../../helpers/constants/ROUTES.js';
-import styles from './HomePage.module.css';
 import { staticInfo } from '../../helpers/staticData/homePageInfo.js';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
   return (
