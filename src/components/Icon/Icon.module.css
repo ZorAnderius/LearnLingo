@@ -9,7 +9,25 @@ svg use {
 }
 
 .eye-off,
-.close {
+.close,
+.book,
+.heart {
   stroke: currentColor;
   fill: var(--white-clr);
+}
+
+.heart {
+  transition: fill var(--transition-time) var(--transition-func),
+    stroke var(--transition-time) var(--transition-func);
+}
+
+.heart:is(:hover, :focus),
+.heart.active {
+  fill: var(--yellow-secondary-clr);
+  stroke: var(--yellow-secondary-clr);
+}
+
+.star {
+  stroke: var(--rating-clr);
+  fill: var(--rating-clr);
 }

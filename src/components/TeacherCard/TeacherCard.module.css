@@ -1,0 +1,125 @@
+.avatar-thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--yellow-primary-clr);
+  background: var(--white-clr);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar-thumb::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: var(--white-clr);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.avatar-thumb::after {
+  content: '';
+  position: absolute;
+  top: 17px;
+  right: 22px;
+  background-color: var(--online-clr);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.avatar-img {
+  border-radius: 50%;
+}
+
+.teacher-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.teacher-info-header {
+  display: flex;
+  min-width: 100%;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name-lang {
+  color: var(--text-secondary-clr);
+}
+
+.teacher-name {
+  font-size: 24px;
+}
+
+.lesson-container {
+  display: flex;
+  gap: 64px;
+}
+
+.lessons-info-container {
+  display: flex;
+  gap: 32px;
+}
+
+.lesson-info-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
+}
+
+.lesson-info-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 1px;
+  background-color: var(--text-opacity-selector-clr);
+}
+
+.price-per-hour {
+  color: var(--online-clr);
+}
+
+.teacher-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teacher-info-item {
+  color: var(--text-secondary-clr);
+}
+
+.teacher-info-item span {
+  color: var(--text-primary-clr);
+}
+
+.teacher-lang {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}

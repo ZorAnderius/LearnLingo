@@ -48,7 +48,7 @@ const TeachersList = () => {
   return (
     teachers && (
       <section>
-        <Container>
+        <Container location="teachers">
           <div className={styles['teacher-block-container']}>
             <ul className={styles['teachers-list']}>
               {teachers?.map((teacher, idx) => {
