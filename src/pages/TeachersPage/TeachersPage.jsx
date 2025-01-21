@@ -6,10 +6,10 @@ import styles from './TeachersPage.module.css';
 
 const TeachersPage = () => {
   return (
-    <div className={styles}>
+    <main className={styles['teacher-main']}>
       <Filters />
       <TeachersList />
-    </div>
+    </main>
   );
 };
 

@@ -1,4 +1,5 @@
-.submit {
+.submit,
+.loadMore {
   padding: 16px;
   border-radius: 12px;
   background-color: var(--yellow-secondary-clr);
@@ -10,7 +11,13 @@
   transition: background-color var(--transition-time) var(--transition-func);
 }
 
-.submit:is(:hover, :focus) {
+.loadMore {
+  padding: 16px 48px;
+  align-self: center;
+}
+
+.submit:is(:hover, :focus),
+.loadMore:is(:hover, :focus) {
   background-color: var(--yellow-primary-clr);
 }
 

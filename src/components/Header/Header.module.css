@@ -1,3 +1,7 @@
+.header-teachers {
+  background-color: var(--hero-bgr-clr);
+}
+
 .header-nav {
   width: 100%;
   display: flex;

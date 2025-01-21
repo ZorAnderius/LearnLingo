@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 import TeacherCard from '../TeacherCard/TeacherCard.jsx';
+import Button from '../Button/Button.jsx';
+import Container from '../Container/Container.jsx';
 import {
   fetchAllTeachers,
   fetchTeacherCount,
 } from '../../firebase/teachers/services.js';
+
+import styles from './TeachersList.module.css';
 
 const limit = 3;
 let page = 1;
@@ -20,42 +24,49 @@ const TeachersList = () => {
       setTeachers(prevState => [...prevState, ...teachersData]);
     }
     const totalPage = Math.ceil(teacherCount / limit);
-    if (page >= totalPage) {
-      setShowLoadMore(false);
-    }
+    setShowLoadMore(page < totalPage);
   };
 
   useEffect(() => {
+    page = 1;
     const getTeachers = async () => {
       const teachersData = await fetchAllTeachers(page, limit);
-      const teachersCountData = await fetchTeacherCount();
-      setTeacherCount(teachersCountData);
-      const totalPage = Math.ceil(teacherCount / limit);
-      page >= totalPage ? setShowLoadMore(false) : setShowLoadMore(true);
       setTeachers(teachersData);
     };
 
+    const getTeachersCount = async () => {
+      const teachersCountData = await fetchTeacherCount();
+      setTeacherCount(teachersCountData);
+      const totalPage = Math.ceil(teachersCountData / limit);
+      setShowLoadMore(page < totalPage);
+    };
+
     getTeachers();
-  }, [teacherCount]);
+    getTeachersCount();
+  }, []);
 
   return (
     teachers && (
-      <>
-        <ul>
-          {teachers?.map((teacher, idx) => {
-            return (
-              <li key={idx}>
-                <TeacherCard teacher={teacher} />
-              </li>
-            );
-          })}
-        </ul>
-        {showLoadMore && (
-          <button type="button" onClick={handleLoadMore}>
-            LoadMore
-          </button>
-        )}
-      </>
+      <section>
+        <Container>
+          <div className={styles['teacher-block-container']}>
+            <ul className={styles['teachers-list']}>
+              {teachers?.map((teacher, idx) => {
+                return (
+                  <li key={idx} className={styles['teacher-item']}>
+                    <TeacherCard teacher={teacher} />
+                  </li>
+                );
+              })}
+            </ul>
+            {showLoadMore && (
+              <Button type="button" style="loadMore" onClick={handleLoadMore}>
+                Load more
+              </Button>
+            )}
+          </div>
+        </Container>
+      </section>
     )
   );
 };

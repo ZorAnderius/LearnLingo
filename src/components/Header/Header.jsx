@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { ROUTES } from '../../helpers/constants/ROUTES.js';
 import Modal from '../Modal/Modal.jsx';
@@ -17,6 +17,7 @@ const activeStyle = ({ isActive }) => {
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [btnContent, setBtnContent] = useState('');
+  const location = useLocation();
 
   const handleToggleModal = e => {
     if (e?.currentTarget?.nodeName === 'BUTTON') {
@@ -26,8 +27,8 @@ const Header = () => {
   };
 
   return (
-    <header className={styles}>
-      <Section style={'header'}>
+    <header className={location?.pathname === ROUTES.TEACHERS && styles['header-teachers']}>
+      <Section style='header'>
         <Container>
           <nav className={styles['header-nav']}>
             <Link to={ROUTES.HOME} className={styles['logo-container']}>
