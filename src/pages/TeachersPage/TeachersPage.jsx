@@ -1,19 +1,16 @@
-import { useEffect } from 'react';
+import Filters from '../../components/Filters/Filters.jsx';
+import TeachersList from '../../components/TeachersList/TeachersList.jsx';
 import styles from './TeachersPage.module.css';
-import { getCurrentUser } from '../../firebase/users/services.js';
 
 // asAs12$fd;
 
 const TeachersPage = () => {
-  useEffect(() => {
-    const getUser = async () => {
-      const user = await getCurrentUser();
-      console.log(user);
-    };
-
-    getUser();
-  }, []);
-  return <div className={styles}>Teachers Page</div>;
+  return (
+    <div className={styles}>
+      <Filters />
+      <TeachersList />
+    </div>
+  );
 };
 
 export default TeachersPage;
